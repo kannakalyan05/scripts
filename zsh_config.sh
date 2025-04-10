@@ -8,7 +8,7 @@ cat <<EOF >> ~/.zshrc
 alias vi="nvim"
 alias ff="fastfetch"
 alias grubup="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias pacorp='echo "sudo pacman -Rns \$(pacman -Qdtq)"; sudo pacman -Rns $(pacman -Qdtq)'
+alias pacorp='echo "sudo pacman -Rns \$(pacman -Qdtq)"; sudo pacman -Rns \$(pacman -Qdtq)'
 alias vz="nvim ~/.zshrc && source ~/.zshrc"
 alias pp="python3"
 alias penv="python3 -m venv .myenv"
