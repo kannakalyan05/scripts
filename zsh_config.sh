@@ -7,20 +7,26 @@ cat <<EOF >> ~/.zshrc
 # Custom aliases
 alias vi="nvim"
 alias ff="fastfetch"
-alias grubup="sudo grub-mkconfig -o /boot/grub/grub.cfg"
-alias pacorp='echo "sudo pacman -Rns \$(pacman -Qdtq)"; sudo pacman -Rns \$(pacman -Qdtq)'
 alias vz="nvim ~/.zshrc && source ~/.zshrc"
+alias cc="cd .."
+alias clr="clear"
+
+alias cod="cd ~/Desktop/Coding"
+alias codp="cd ~/Desktop/Coding/python"
+
+alias waystop="waydroid session stop"
+
+alias vmon='sudo systemctl start libvirtd && sudo virsh net-start default'
+alias vmoff='sudo virsh net-destroy default && sudo systemctl stop libvirtd'
+
 alias pp="python3"
 alias penv="python3 -m venv .myenv"
 alias act="source .myenv/bin/activate"
 alias dct="deactivate"
-alias cod="cd ~/Desktop/Coding"
-alias codp="cd ~/Desktop/Coding/python"
-alias cc="cd .."
-alias clr="clear"
-alias waystop="waydroid session stop"
-alias vmon='sudo systemctl start libvirtd && sudo virsh net-start default'
-alias vmoff='sudo virsh net-destroy default && sudo systemctl stop libvirtd'
+
+alias grubup="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+alias pacorp='echo "sudo pacman -Rns \$(pacman -Qdtq)"; sudo pacman -Rns \$(pacman -Qdtq)'
+
 # alias =""
 # alias =""
 EOF
