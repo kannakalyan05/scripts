@@ -22,6 +22,7 @@ extra_packages=(
   xfce4-screensaver
   xfce4-power-manager
   ttf-firacode-nerd
+  blueman
 )
 
 clear
