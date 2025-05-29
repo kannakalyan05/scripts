@@ -12,6 +12,7 @@ main_packages=(
 extra_packages=(
   gvfs
   xdotool
+  engrampa
   network-manager-applet
   thunar-archive-plugin
   xdg-user-dirs
