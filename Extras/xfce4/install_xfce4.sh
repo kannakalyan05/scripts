@@ -18,25 +18,6 @@ extra_packages=(
   xfce4-whiskermenu-plugin
 )
 
-# Archive and compression tools (alphabetical)
-archive_tools=(
-  bzip2
-  cpio
-  gzip
-  libzip
-  lzip
-  lrzip
-  lzop
-  minizip
-  p7zip
-  tar
-  unrar
-  unzip
-  xz
-  zip
-  zstd
-)
-
 # Function to install a package if it's not already installed
 install_software() {
   if yay -Q "$1" &>/dev/null; then
@@ -70,12 +51,15 @@ if [[ "$INST" =~ ^[Yy]$ ]]; then
   done
 fi
 
-# Install archive tools
+# Install archive tools from external script
 read -rep $'\n[\e[1;33mACTION\e[0m] - Install archive and compression tools (zip, tar, etc)? (y/n): ' INST
 if [[ "$INST" =~ ^[Yy]$ ]]; then
-  for pkg in "${archive_tools[@]}"; do
-    install_software "$pkg"
-  done
+  ARCHIVER_SCRIPT="$(dirname "$0")/../install_archivers.sh"
+  if [[ -x "$ARCHIVER_SCRIPT" ]]; then
+    bash "$ARCHIVER_SCRIPT"
+  else
+    echo -e "[\e[1;31mERROR\e[0m] Could not find or execute: $ARCHIVER_SCRIPT"
+  fi
 fi
 
 echo -e "\n[\e[1;32mDONE\e[0m] Installation complete. You may now reboot to start XFCE."
