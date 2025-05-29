@@ -15,7 +15,7 @@ extra_packages=(
   thunar-archive-plugin
   xdg-user-dirs
   xfce4-cpugraph-plugin
-  xfce4-clipman-plugingi
+  xfce4-clipman-plugin
   xfce4-whiskermenu-plugin
 )
 
