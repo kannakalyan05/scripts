@@ -1,25 +1,43 @@
 #!/bin/bash
 
-# Combined XFCE4 + LightDM + Greeter packages
+# Core XFCE + LightDM + Greeter packages
 main_packages=(
-  xfce4
   lightdm
   lightdm-gtk-greeter
   lightdm-gtk-greeter-settings
+  xfce4
 )
 
-# Extra packages (customize as needed)
+# Extra XFCE utilities and plugins
 extra_packages=(
-  thunar-archive-plugin
-  network-manager-applet
   gvfs
+  network-manager-applet
+  thunar-archive-plugin
   xdg-user-dirs
-  xfce4-whiskermenu-plugin
   xfce4-cpugraph-plugin
   xfce4-whiskermenu-plugin
 )
 
-# Function to install software
+# Archive and compression tools (alphabetical)
+archive_tools=(
+  bzip2
+  cpio
+  gzip
+  libzip
+  lzip
+  lrzip
+  lzop
+  minizip
+  p7zip
+  tar
+  unrar
+  unzip
+  xz
+  zip
+  zstd
+)
+
+# Function to install a package if it's not already installed
 install_software() {
   if yay -Q "$1" &>/dev/null; then
     echo -e "[\e[1;32mINFO\e[0m] $1 is already installed."
@@ -29,28 +47,35 @@ install_software() {
   fi
 }
 
+# Start of script
 clear
-echo -e "[\e[1;33mINFO\e[0m] XFCE4 and LightDM Setup Script"
+echo -e "[\e[1;33mINFO\e[0m] XFCE4 and Archive Tool Installer Script"
 
-# Install main desktop and login manager packages
+# Install XFCE and LightDM
 read -rep $'\n[\e[1;33mACTION\e[0m] - Install XFCE4 and LightDM? (y/n): ' INST
 if [[ "$INST" =~ ^[Yy]$ ]]; then
   for pkg in "${main_packages[@]}"; do
     install_software "$pkg"
   done
 
-  # Enable LightDM
-  echo -e "[\e[1;34mSYSTEMD\e[0m] Enabling LightDM service..."
+  echo -e "[\e[1;34mSYSTEMD\e[0m] Enabling LightDM..."
   sudo systemctl enable lightdm.service
 fi
 
-# Optional: install extra packages
-read -rep $'\n[\e[1;33mACTION\e[0m] - Install extra XFCE utilities and tools? (y/n): ' INST
+# Install extra XFCE utilities
+read -rep $'\n[\e[1;33mACTION\e[0m] - Install extra XFCE utilities and plugins? (y/n): ' INST
 if [[ "$INST" =~ ^[Yy]$ ]]; then
   for pkg in "${extra_packages[@]}"; do
     install_software "$pkg"
   done
 fi
 
-echo -e "\n[\e[1;32mDONE\e[0m] Setup complete. Reboot to start XFCE."
+# Install archive tools
+read -rep $'\n[\e[1;33mACTION\e[0m] - Install archive and compression tools (zip, tar, etc)? (y/n): ' INST
+if [[ "$INST" =~ ^[Yy]$ ]]; then
+  for pkg in "${archive_tools[@]}"; do
+    install_software "$pkg"
+  done
+fi
 
+echo -e "\n[\e[1;32mDONE\e[0m] Installation complete. You may now reboot to start XFCE."
