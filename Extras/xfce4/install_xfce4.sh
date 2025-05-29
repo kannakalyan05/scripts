@@ -11,6 +11,7 @@ main_packages=(
 # Extra XFCE utilities and plugins
 extra_packages=(
   gvfs
+  xdotool
   network-manager-applet
   thunar-archive-plugin
   xdg-user-dirs
@@ -18,7 +19,9 @@ extra_packages=(
   xfce4-clipman-plugin
   xfce4-pulseaudio-plugin
   xfce4-whiskermenu-plugin
+  xfce4-screensaver
   xfce4-power-manager
+  ttf-firacode-nerd
 )
 
 clear
