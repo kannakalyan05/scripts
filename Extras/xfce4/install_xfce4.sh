@@ -16,7 +16,9 @@ extra_packages=(
   xdg-user-dirs
   xfce4-cpugraph-plugin
   xfce4-clipman-plugin
+  xfce4-pulseaudio-plugin
   xfce4-whiskermenu-plugin
+  xfce4-power-manager
 )
 
 clear
