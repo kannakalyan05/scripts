@@ -13,6 +13,7 @@ extra_packages=(
   gvfs
   xdotool
   engrampa
+  pavucontrol
   network-manager-applet
   thunar-archive-plugin
   xdg-user-dirs
