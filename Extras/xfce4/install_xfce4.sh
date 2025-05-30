@@ -34,7 +34,7 @@ echo -e "[\e[1;33mINFO\e[0m] XFCE4 and Archive Tool Installer Script"
 read -rep $'\n[\e[1;33mACTION\e[0m] - Install XFCE4 and LightDM? (y/n): ' INST
 if [[ "$INST" =~ ^[Yy]$ ]]; then
   echo -e "[\e[1;34mINSTALL\e[0m] Installing XFCE4 and LightDM packages..."
-  yay -S --needed "${main_packages[@]}"
+  yay -S --needed --noconfirm "${main_packages[@]}"
 
   echo -e "[\e[1;34mSYSTEMD\e[0m] Enabling LightDM..."
   sudo systemctl enable lightdm.service
@@ -44,7 +44,7 @@ fi
 read -rep $'\n[\e[1;33mACTION\e[0m] - Install extra XFCE utilities and plugins? (y/n): ' INST
 if [[ "$INST" =~ ^[Yy]$ ]]; then
   echo -e "[\e[1;34mINSTALL\e[0m] Installing extra XFCE packages..."
-  yay -S --needed "${extra_packages[@]}"
+  yay -S --needed --noconfirm "${extra_packages[@]}"
 fi
 
 # Run archive tool installer script
