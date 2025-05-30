@@ -20,6 +20,7 @@ extra_packages=(
   xfce4-clipman-plugin
   xfce4-pulseaudio-plugin
   xfce4-whiskermenu-plugin
+  xfce4-panel-profiles
   xfce4-screensaver
   xfce4-power-manager
   ttf-firacode-nerd
