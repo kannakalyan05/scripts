@@ -46,6 +46,9 @@ read -rep $'\n[\e[1;33mACTION\e[0m] - Install extra XFCE utilities and plugins? 
 if [[ "$INST" =~ ^[Yy]$ ]]; then
   echo -e "[\e[1;34mINSTALL\e[0m] Installing extra XFCE packages..."
   yay -S --needed --noconfirm "${extra_packages[@]}"
+
+  echo -e "[\e[1;34mSYSTEMD\e[0m] Enabling Bluetooth..."
+  sudo systemctl enable bluetooth.service
 fi
 
 # Run archive tool installer script
