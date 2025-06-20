@@ -10,6 +10,7 @@ alias ff="fastfetch"
 alias vz="nvim ~/.zshrc && source ~/.zshrc"
 alias cc="cd .."
 alias clr="clear"
+alias rm="trash -v"
 
 alias cod="cd ~/Desktop/Coding"
 alias codp="cd ~/Desktop/Coding/python"
